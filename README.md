@@ -107,6 +107,10 @@ When you are done, press `CTRL+C` in your terminal to stop the temporary server.
 
 ## Other
 
+### Opening files from the terminal
+
+Simply use `code <file>` (without `<>`) to open a file, i.e. `code index.html` to open the file in the text editor.
+
 ### New Terminal
 
 Did you lose your terminal? Launch a new one by pressing the menu icon in the top-left corner > `Terminal` > `New Terminal`.
