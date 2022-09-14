@@ -100,7 +100,7 @@ Available on:
   https://username-code50-12345678-7w9q5j9thxgr4-8080.githubpreview.dev
 Hit CTRL-C to stop the server
 ```
-Command+click on the URL that appears. Click the HTML file you wish to preview.
+Command+click (Windows: control+click) on the URL that appears. Click the HTML file you wish to preview.
 
 You can edit your code (it autosaves), then just reload the preview.
 
