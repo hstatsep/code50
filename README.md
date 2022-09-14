@@ -60,7 +60,7 @@ It is recommended that you leave this window on the left half of your screen so 
   * Title: code50
   * Key: paste your ssh key
   * Press the green **Add SSH key** button
-* Back in your cs50 IDE, copy/paste the following
+* Back in your IDE, copy/paste the following
 ```
 echo 'Host github.com' >> ~/.ssh/config
 echo ' Hostname ssh.github.com' >> ~/.ssh/config
