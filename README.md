@@ -36,7 +36,7 @@ So the solution is to delete the **`%`** and your **10-digit ID** from the URL. 
 #### Faster access in the future
 
 * If you are working on your personal computer, you can bookmark this URL.
-* If you are working on a shared computer, you can put the URL into a permanent URL shortener such as tiny.cc or bit.ly (NOT yellkey). You will still be prompted to login with your Github account.
+* If you are working on a shared computer, you can put the URL into a permanent URL shortener such as tinyurl.com (NOT yellkey). You will still be prompted to login with your Github account.
 
 ## Setting up an SSH key between code50 and Github
 
