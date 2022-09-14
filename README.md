@@ -17,6 +17,7 @@ By default, **code.cs50.io** will load a codespace at a directory that does _NOT
 
 ### Option 1
 Simply entering `code /workspaces` into the terminal will launch a new codespace (make sure you close your old one!).
+NOTE: It will ask you to confirm. Type `y` then press <kbd>ENTER</kbd>.
 
 ### Option 2
 Doing the command above essentially loads a new tab with a different URL. Here's the before/after:
