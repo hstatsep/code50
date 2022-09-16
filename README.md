@@ -74,13 +74,23 @@ echo
 You should see
 > Hi "username"! You've successfully authenticated, but GitHub does not provide shell access.
 
-**You're done setting up SSH keys! Now you can easily push to Github.**
-<br>
-<br>
-
 _WARNING: **ONLY** if you made a mistake, type this command to DELETE your SSH keys and start over:_
 
 `rm -rf ~/.ssh`
+
+---
+
+### Preventing auto-pushing
+
+There is an extension installed that we need to disable (otherwise work will be auto-pushed to Github, and we don't want that).
+
+* Left sidebar: **Extensions** (looks like a 4-piece block with one piece broken off)
+* Type in: `gitdoc`
+* Click on the **gitdoc** that appears
+* Click **Disable**
+* You should now refresh your browser
+
+**You're all done!** Your IDE is set up and ready to use. Everything below contains helpful hints on how to use your IDE.
 
 ## Previewing
 
