@@ -50,6 +50,7 @@ It is recommended that you leave this window on the left half of your screen so 
   * Example: `git config --global user.email "johnd1234@hstat.org"`
 * Then type `git config --global user.name "Your Name"`
   * Example: `git config --global user.name "John Doe"`
+* Finally, copy/paste this: `git config --global pull.rebase false`
 
 ### Generating and connecting an SSH key
 * Copy/paste the following:
