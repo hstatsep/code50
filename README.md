@@ -88,7 +88,7 @@ There is an extension installed that we need to disable (otherwise work will be 
 * Left sidebar: **Extensions** (looks like a 4-piece block with one piece broken off)
 * Type in: `gitdoc`
 * Click on the **gitdoc** that appears
-* Click **Disable**
+* Click **Uninstall** (not _disable_)
 * You should now refresh your browser
 
 **You're all done!** Your IDE is set up and ready to use. Everything below contains helpful hints on how to use your IDE.
