@@ -1,5 +1,7 @@
 # code50
 
+#### [Video](https://www.youtube.com/watch?v=Y9IyXRUw6Yk) going through these directions
+
 ## Explanation
 
 "code50" refers to the browser-based IDE implementation of Visual Studio Code (aka "VS Code") built by the CS50 team at Harvard, utilizing Github Codespaces. Full documentation [here](https://cs50.readthedocs.io/code/).
