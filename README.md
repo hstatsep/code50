@@ -93,8 +93,13 @@ There is an extension installed that we need to disable (otherwise work will be 
 * You should now refresh your browser
 
 ### !!!!! IMPORTANT !!!!!
-
-This is a FREE codespace. One limitation is that if you go several weeks without using it, you will get an email warning you that **your codespace will be deleted (reset) if you don't login**. So just make sure you login occasionally (i.e. over the summer if you're not actively using it), and make sure you are checking your email so that you get the warning before it's too late!
+```diff
+- This is a FREE codespace. 
+- One limitation is that if you go several weeks without using it, 
+- you will get an email warning you that your codespace will be deleted (reset) if you don't login. 
+- So just make sure you login occasionally (i.e. over the summer if you're not actively using it), 
+- and make sure you are checking your email so that you get the warning before it's too late!
+```
 
 **You're all done!** Your IDE is set up and ready to use. Everything below contains helpful hints on how to use your IDE.
 
