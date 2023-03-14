@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
+        <style>
+            /* CSS */
+            
+        </style>
+        
+        <title>IDE Setup</title>
+    </head>
+    <body>
+        <!-- HTML -->
+        <input id="userName" value="Your Name">
+        <button id="insertName">Insert Name</button><br>
+
+        <input id="userEmail" value="Your Email">
+        <button id="insertEmail">Insert Email</button><br>
+
+        <textarea id="gitconfig">
+            git config --global user.name "X"
+            git config --global user.email "X"
+            git config --global pull.rebase false
+            code --uninstall-extension vsls-contrib.gitdoc
+        </textarea>
+
+        <p><a href="https://github.com/settings/tokens/new">Get a token</a></p>
+        <input id="userToken" value="Your Token">
+        <button id="insertToken">Insert Token</button><br>
+        <textarea id="ssh">
+            TOKEN=X
+            ssh-keygen -q -b 4096 -t rsa -N "" -f ~/.ssh/github_rsa
+            PUBKEY=`cat ~/.ssh/github_rsa.pub`
+            TITLE=`hostname`
+            RESPONSE=`curl -s -H "Authorization: token ${TOKEN}" \
+            -X POST --data-binary "{\"title\":\"${TITLE}\",\"key\":\"${PUBKEY}\"}" \
+            https://api.github.com/user/keys`
+            KEYID=`echo $RESPONSE \
+            | grep -o '\"id.*' \
+            | grep -o "[0-9]*" \
+            | grep -m 1 "[0-9]*"`
+            echo "Public key deployed to remote service"
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/github_rsa
+            echo "Added SSH key to the ssh-agent"
+            echo "Host github.com" >> ~/.ssh/config
+            echo " Hostname ssh.github.com" >> ~/.ssh/config
+            echo " Port 443" >> ~/.ssh/config
+            echo " StrictHostKeyChecking no" >> ~/.ssh/config
+            ssh -T git@github.com
+        </textarea>
+
+        <select id="course">
+            <option id="wd">wd</option>
+            <option id="js">js</option>
+            <option id="apcsa">apcsa</option>
+        </select>
+
+        <textarea id="repo">
+            DIR=/workspaces
+            REPO=wd
+            git clone git@github.com:hstatsep/$REPO.git $DIR/$REPO
+            rm -rf $DIR/$REPO/.git
+            echo "Done"
+        </textarea>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="script.js"></script> -->
+        <script>
+            // JS
+            function text100(box) {
+                box.style.width = "100%";
+                box.style.height = box.scrollHeight + "px";
+            }
+
+            text100(document.querySelector('#gitconfig'))
+            text100(document.querySelector('#ssh'))
+            text100(document.querySelector('#repo'))
+
+            // GIT CONFIG
+
+            function updateGitconfig(){
+                userName = document.querySelector('#userName').value;
+                userEmail = document.querySelector('#userEmail').value;
+                let raw = `git config --global user.name '${userName}'
+git config --global user.email '${userName}'
+git config --global pull.rebase false
+code --uninstall-extension vsls-contrib.gitdoc`
+                document.querySelector('#gitconfig').innerHTML = raw;
+            }
+            updateGitconfig();
+            document.querySelector('#insertName').addEventListener('click',updateGitconfig);
+
+
+            // SSH
+
+            function updateSsh(){
+                userToken = document.querySelector('#userToken').value;
+                let raw = `TOKEN=${userToken}
+ssh-keygen -q -b 4096 -t rsa -N "" -f ~/.ssh/github_rsa
+PUBKEY=\`cat ~/.ssh/github_rsa.pub\`
+TITLE=\`hostname\`
+RESPONSE=\`curl -s -H "Authorization: token \${TOKEN}" \\
+-X POST --data-binary "{\\"title\\":\\"\${TITLE}\\",\\"key\\":\\"\${PUBKEY}\\"}" \\
+https://api.github.com/user/keys\`
+KEYID=\`echo $RESPONSE \\
+| grep -o '\\"id.*' \\
+| grep -o "[0-9]*" \\
+| grep -m 1 "[0-9]*"\`
+echo "Public key deployed to remote service"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/github_rsa
+echo "Added SSH key to the ssh-agent"
+echo "Host github.com" >> ~/.ssh/config
+echo " Hostname ssh.github.com" >> ~/.ssh/config
+echo " Port 443" >> ~/.ssh/config
+echo " StrictHostKeyChecking no" >> ~/.ssh/config
+ssh -T git@github.com`
+                document.querySelector('#ssh').innerHTML = raw;
+            }
+            updateSsh();
+            document.querySelector('#insertToken').addEventListener('click',updateSsh);
+
+
+            function updateRepo(){
+                userCourse = document.querySelector('#course').value;
+                let raw = `DIR=/workspaces
+REPO=${userCourse}
+git clone git@github.com:hstatsep/$REPO.git $DIR/$REPO
+rm -rf $DIR/$REPO/.git
+echo "Done"`
+                document.querySelector('#repo').innerHTML = raw;
+            }
+            // REPO
+            document.querySelector("#course").addEventListener("change",updateRepo);
+            updateRepo();
+
+            
+        </script>
+    </body>
+</html>
