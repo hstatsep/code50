@@ -89,13 +89,14 @@
                 userName = document.querySelector('#userName').value;
                 userEmail = document.querySelector('#userEmail').value;
                 let raw = `git config --global user.name '${userName}'
-git config --global user.email '${userName}'
+git config --global user.email '${userEmail}'
 git config --global pull.rebase false
 code --uninstall-extension vsls-contrib.gitdoc`
                 document.querySelector('#gitconfig').innerHTML = raw;
             }
             updateGitconfig();
             document.querySelector('#insertName').addEventListener('click',updateGitconfig);
+            document.querySelector('#insertEmail').addEventListener('click',updateGitconfig);
 
 
             // SSH
