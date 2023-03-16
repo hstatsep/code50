@@ -73,8 +73,8 @@
             <button id="insertToken" class="btn btn-primary">Insert Token</button></p>
             <textarea id="ssh">
                 TOKEN=X
-                ssh-keygen -q -b 4096 -t rsa -N "" -f ~/.ssh/github_rsa
-                PUBKEY=`cat ~/.ssh/github_rsa.pub`
+                echo -e "\n" | ssh-keygen -t rsa -N ""
+                PUBKEY=`cat ~/.ssh/id_rsa.pub`
                 TITLE=`hostname`
                 RESPONSE=`curl -s -H "Authorization: token ${TOKEN}" \
                 -X POST --data-binary "{\"title\":\"${TITLE}\",\"key\":\"${PUBKEY}\"}" \
@@ -84,9 +84,6 @@
                 | grep -o "[0-9]*" \
                 | grep -m 1 "[0-9]*"`
                 echo "Public key deployed to remote service"
-                eval "$(ssh-agent -s)"
-                ssh-add ~/.ssh/github_rsa
-                echo "Added SSH key to the ssh-agent"
                 echo "Host github.com" >> ~/.ssh/config
                 echo " Hostname ssh.github.com" >> ~/.ssh/config
                 echo " Port 443" >> ~/.ssh/config
@@ -140,7 +137,7 @@
                 let raw = `git config --global user.name '${userName}'
 git config --global user.email '${userEmail}'
 git config --global pull.rebase false
-code --uninstall-extension vsls-contrib.gitdoc`
+code --uninstall-extension vsls-contrib.gitdoc\n`
                 document.querySelector('#gitconfig').innerHTML = raw;
             }
             updateGitconfig();
@@ -153,8 +150,8 @@ code --uninstall-extension vsls-contrib.gitdoc`
             function updateSsh(){
                 userToken = document.querySelector('#userToken').value;
                 let raw = `TOKEN=${userToken}
-ssh-keygen -q -b 4096 -t rsa -N "" -f ~/.ssh/github_rsa
-PUBKEY=\`cat ~/.ssh/github_rsa.pub\`
+echo -e "\\n" | ssh-keygen -t rsa -N ""
+PUBKEY=\`cat ~/.ssh/id_rsa.pub\`
 TITLE=\`hostname\`
 RESPONSE=\`curl -s -H "Authorization: token \${TOKEN}" \\
 -X POST --data-binary "{\\"title\\":\\"\${TITLE}\\",\\"key\\":\\"\${PUBKEY}\\"}" \\
@@ -164,14 +161,11 @@ KEYID=\`echo $RESPONSE \\
 | grep -o "[0-9]*" \\
 | grep -m 1 "[0-9]*"\`
 echo "Public key deployed to remote service"
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/github_rsa
-echo "Added SSH key to the ssh-agent"
 echo "Host github.com" >> ~/.ssh/config
 echo " Hostname ssh.github.com" >> ~/.ssh/config
 echo " Port 443" >> ~/.ssh/config
 echo " StrictHostKeyChecking no" >> ~/.ssh/config
-ssh -T git@github.com`
+ssh -T git@github.com\n`
                 document.querySelector('#ssh').innerHTML = raw;
             }
             updateSsh();
@@ -184,7 +178,7 @@ ssh -T git@github.com`
 REPO=${userCourse}
 git clone git@github.com:hstatsep/$REPO.git $DIR/$REPO
 rm -rf $DIR/$REPO/.git
-echo "Done"`
+echo "Done"\n`
                 document.querySelector('#repo').innerHTML = raw;
             }
             // REPO
