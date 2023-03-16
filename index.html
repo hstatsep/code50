@@ -10,6 +10,10 @@
         <style>
             /* CSS */
 
+            body {
+                padding-bottom: 40px;
+            }
+
             h1 {
                 margin: 40px 0;
             }
@@ -59,6 +63,7 @@
                 git config --global pull.rebase false
                 code --uninstall-extension vsls-contrib.gitdoc
             </textarea>
+            <button class="btn btn-warning copy" data-clipboard-target="#gitconfig">Copy</button>
             <br><br><br>
 
             <h2>Step 2: SSH</h2>
@@ -90,6 +95,7 @@
                 echo " StrictHostKeyChecking no" >> ~/.ssh/config
                 ssh -T git@github.com
             </textarea>
+            <button class="btn btn-warning copy" data-clipboard-target="#ssh">Copy</button>
             <br><br><br>
 
             <h2>Step 3: Course Folder</h2>
@@ -106,11 +112,14 @@
                 rm -rf $DIR/$REPO/.git
                 echo "Done"
             </textarea>
+            <button class="btn btn-warning copy" data-clipboard-target="#repo">Copy</button>
         </div>
         
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.8/clipboard.min.js"></script>
         <!-- <script src="script.js"></script> -->
+
         <script>
             // JS
             function text100(box) {
@@ -184,6 +193,24 @@ echo "Done"\n`
             // REPO
             document.querySelector("#course").addEventListener("change",updateRepo);
             updateRepo();
+
+            // COPY
+
+
+            var clipboard = new Clipboard('.copy');
+
+            clipboard.on('success', function(e) {
+                console.info('Action:', e.action);
+                console.info('Text:', e.text);
+                console.info('Trigger:', e.trigger);
+
+                e.clearSelection();
+            });
+
+            clipboard.on('error', function(e) {
+                console.error('Action:', e.action);
+                console.error('Trigger:', e.trigger);
+            });
 
             
         </script>
