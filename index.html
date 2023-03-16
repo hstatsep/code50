@@ -19,6 +19,16 @@
                 font-family:  monospace;
             }
 
+            input, select {
+                width:  auto !important;
+                display: inline !important;
+            }
+
+            button {
+                position:  relative;
+                top: -2px;
+            }
+
             .red {
                 color:  red;
             }
@@ -37,11 +47,11 @@
             <h1>HSTAT SEP IDE Setup</h1>
 
             <h2>Step 1: Basic Info</h2>
-            <input id="userName" value="Your Name">
-            <button id="insertName">Insert Name</button><br>
+            <p><input id="userName" class="form-control" placeholder="Your Name">
+            <button id="insertName" class="btn btn-primary">Insert Name</button></p>
 
-            <input id="userEmail" value="Your Email">
-            <button id="insertEmail">Insert Email</button><br>
+            <p><input id="userEmail" class="form-control" placeholder="Your Email">
+            <button id="insertEmail" class="btn btn-primary">Insert Email</button></p>
 
             <textarea id="gitconfig">
                 git config --global user.name "X"
@@ -59,8 +69,8 @@
                 <li class="red">Check: <strong>admin:public_key</strong></li>
                 <li class="green"><strong>Generate token</strong></li>
             </ul>
-            <input id="userToken" value="Your Token">
-            <button id="insertToken">Insert Token</button><br>
+            <p><input id="userToken" class="form-control" placeholder="Your Token">
+            <button id="insertToken" class="btn btn-primary">Insert Token</button></p>
             <textarea id="ssh">
                 TOKEN=X
                 ssh-keygen -q -b 4096 -t rsa -N "" -f ~/.ssh/github_rsa
@@ -86,7 +96,7 @@
             <br><br><br>
 
             <h2>Step 3: Course Folder</h2>
-            <select id="course">
+            <select id="course" class="form-select form-select-lg">
                 <option id="wd">wd</option>
                 <option id="js">js</option>
                 <option id="apcsa">apcsa</option>
@@ -114,6 +124,13 @@
             text100(document.querySelector('#gitconfig'))
             text100(document.querySelector('#ssh'))
             text100(document.querySelector('#repo'))
+
+            document.querySelectorAll('input').forEach(function(box){
+                box.addEventListener('click',function(){
+                    // alert("clicked")
+                    this.select();
+                })
+            });
 
             // GIT CONFIG
 
