@@ -62,6 +62,7 @@
                 git config --global user.email "X"
                 git config --global pull.rebase false
                 code --uninstall-extension vsls-contrib.gitdoc
+                printf "{\n\t\"gitdoc.enabled\": false,\n\t\"editor.wordWrap\": true\n}" > .vscode/settings.json
             </textarea>
             <button class="btn btn-warning copy" data-clipboard-target="#gitconfig">Copy</button>
             <br><br><br>
@@ -152,7 +153,8 @@
                 let raw = `git config --global user.name '${userName}'
 git config --global user.email '${userEmail}'
 git config --global pull.rebase false
-code --uninstall-extension vsls-contrib.gitdoc\n`
+code --uninstall-extension vsls-contrib.gitdoc
+printf "{\\n\\t\\"gitdoc.enabled\\": false,\\n\\t\\"editor.wordWrap\\": true\\n}" > .vscode/settings.json\n`
                 document.querySelector('#gitconfig').innerHTML = raw;
             }
             updateGitconfig();
