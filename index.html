@@ -103,6 +103,40 @@
                 ssh -T git@github.com
             </textarea>
             <button class="btn btn-warning copy" data-clipboard-target="#ssh">Copy</button>
+            <br>
+            <div class="alert alert-danger" role="alert">
+                <strong>IMPORTANT</strong>: if you do not use your IDE for a long period of time, you will receive an email warning you that your IDE will be reset if you do not log in. All you have to do is login. Failure to do so means:
+                <ul>
+                    <li>You will lose all of your work (as a general habit, make sure you are frequently pushing to you repos.</li>
+                    <li>You will have to follow the steps on this page again (and re-clone any repos you want to work on).</li>
+                </ul>
+                <!-- <p>Click here to see what this email looks like.</p> -->
+                
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Click here to see what the email looks like.
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Example email</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="ide-deleted-warning.png" class="img-fluid">
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!-- ide-deleted-warning.png -->
+            </div>
             <br><br><br>
 
             <h2>Step 3: Course Folder</h2>
