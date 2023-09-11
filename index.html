@@ -64,7 +64,7 @@
                 code --uninstall-extension vsls-contrib.gitdoc
                 printf "{\n\t\"gitdoc.enabled\": false,\n\t\"editor.wordWrap\": true\n}" > .vscode/settings.json
             </textarea>
-            <button class="btn btn-warning copy" data-clipboard-target="#gitconfig">Copy</button>
+            <button class="btn btn-warning copy" data-clipboard-target="#gitconfig">Copy</button> <span>(then paste into your terminal)</span>
             <br><br><br>
 
             <h2>Step 2: SSH</h2>
@@ -106,7 +106,7 @@
                 echo " StrictHostKeyChecking no" >> ~/.ssh/config
                 ssh -T git@github.com
             </textarea>
-            <button class="btn btn-warning copy" data-clipboard-target="#ssh">Copy</button>
+            <button class="btn btn-warning copy" data-clipboard-target="#ssh">Copy</button> <span>(then paste into your terminal)</span>
             <br>
             <div class="alert alert-danger" role="alert">
                 <strong>IMPORTANT</strong>: if you do not use your IDE for a long period of time, you will receive an email warning you that your IDE will be reset if you do not log in. All you have to do is login. Failure to do so means:
@@ -157,7 +157,7 @@
                 rm -rf $DIR/$REPO/.git
                 echo "Done"
             </textarea>
-            <button class="btn btn-warning copy" data-clipboard-target="#repo">Copy</button>
+            <button class="btn btn-warning copy" data-clipboard-target="#repo">Copy</button> <span>(then paste into your terminal)</span>
         </div>
         
         
