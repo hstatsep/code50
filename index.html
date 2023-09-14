@@ -50,6 +50,22 @@
 
             <h1>HSTAT SEP IDE Setup</h1>
 
+
+
+            <h2>Step 0: Navigate to your IDE</h2>
+            <p><ul>
+                <li>Go to <a href="https://cs50.dev/">cs50.dev</a> and login with your Github account.</li>
+                <li>In the URL, you need to delete the <code>%2F12345678</code> by double-clicking on it and pressing <kbd>DELETE</kbd> or <kbd>BACKSPACE</kbd> twice (to also delete the <code>%</code>).</li>
+                <ul>
+                    <li>Before: <code>https://username-code50-12345678-7w9q5j9thxgr4.github.dev/?folder=%2Fworkspaces%2F1224918&vscodeChannel=stable
+                    </code></li>
+                    <li>After: &nbsp;&nbsp;&nbsp;<code>https://username-code50-12345678-7w9q5j9thxgr4.github.dev/?folder=%2Fworkspaces&vscodeChannel=stable
+                    </code></li>
+                </ul>
+                <li>Then press <kbd>ENTER</kbd>. This will load the correct <code>/workspaces</code> directory.</li>
+            </ul></p>
+            
+
             <h2>Step 1: Basic Info</h2>
             <p><input id="userName" class="form-control" placeholder="Your Name">
             <button id="insertName" class="btn btn-primary">Insert Name</button></p>
@@ -73,7 +89,9 @@
                 <li>Note: <strong>type anything</strong></li>
                 <li>Expiration: <strong>doesn't matter</strong></li>
                 <li class="red">Check: <strong>admin:public_key</strong></li>
-                <li><strong class="green">Generate token</strong>, then <strong>copy it</strong></li>
+                <li><strong class="green">Generate token</strong>, then <strong>copy it</strong> using the <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6ZM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1H2Z"/>
+                  </svg> icon</li>
                 <div class="alert alert-warning" role="alert">
                     <p class="mb-0">Note: in a few days, you will get an email with the following text.</em> <strong>You can ignore it.</strong></p>
                     <p class="mb-0">&nbsp;&nbsp;&nbsp;&nbsp;<em>We noticed your personal access token (classic) "x" with admin:public_key scope will expire in 7 days</em></p>
