@@ -78,7 +78,7 @@
                 git config --global user.email "X"
                 git config --global pull.rebase false
                 code --uninstall-extension vsls-contrib.gitdoc
-                printf "{\n\t\"gitdoc.enabled\": false,\n\t\"editor.wordWrap\": true\n}" > .vscode/settings.json
+                FILE=/workspaces/.vscode/settings.json; mkdir /workspaces/.vscode; rm -rf $FILE; touch $FILE; printf "{\n\t\"gitdoc.enabled\": false,\n\t\"editor.wordWrap\": true\n}" > $FILE
             </textarea>
             <button class="btn btn-warning copy" data-clipboard-target="#gitconfig">Copy</button> <span>(then paste into your terminal and press <kbd>ENTER</kbd>)</span>
             <br><br><br>
@@ -210,7 +210,7 @@
 git config --global user.email '${userEmail}'
 git config --global pull.rebase false
 code --uninstall-extension vsls-contrib.gitdoc
-printf "{\\n\\t\\"gitdoc.enabled\\": false,\\n\\t\\"editor.wordWrap\\": true\\n}" > .vscode/settings.json\n`
+FILE=/workspaces/.vscode/settings.json; mkdir /workspaces/.vscode; rm -rf $FILE; touch $FILE; printf "{\\n\\t\\"gitdoc.enabled\\": false,\\n\\t\\"editor.wordWrap\\": true\\n}" > $FILE\n`
                 document.querySelector('#gitconfig').innerHTML = raw;
             }
             updateGitconfig();
