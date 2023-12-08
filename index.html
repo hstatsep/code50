@@ -76,9 +76,21 @@
             <textarea id="gitconfig">
                 git config --global user.name "X"
                 git config --global user.email "X"
-                git config --global pull.rebase false
-                code --uninstall-extension vsls-contrib.gitdoc
-                FILE=/workspaces/.vscode/settings.json; mkdir /workspaces/.vscode; rm -rf $FILE; touch $FILE; printf "{\n\t\"gitdoc.enabled\": false,\n\t\"editor.wordWrap\": true\n}" > $FILE
+                
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
             </textarea>
             <button class="btn btn-warning copy" data-clipboard-target="#gitconfig">Copy</button> <span>(then paste into your terminal and press <kbd>ENTER</kbd>)</span>
             <br><br><br>
@@ -209,8 +221,18 @@
                 let raw = `git config --global user.name '${userName}'
 git config --global user.email '${userEmail}'
 git config --global pull.rebase false
-code --uninstall-extension vsls-contrib.gitdoc
-FILE=/workspaces/.vscode/settings.json; mkdir /workspaces/.vscode; rm -rf $FILE; touch $FILE; printf "{\\n\\t\\"gitdoc.enabled\\": false,\\n\\t\\"editor.wordWrap\\": true\\n}" > $FILE\n`
+code --uninstall-extension vsls-contrib.gitdoc > /dev/null
+FILE=/workspaces/.vscode/settings.json; if ! test -d /workspaces/.vscode; then mkdir /workspaces/.vscode; fi; if test -f $FILE; then rm -rf $FILE; fi; touch $FILE; printf "{\\n\\t\\"gitdoc.enabled\\": false,\\n\\t\\"editor.wordWrap\\": true\\n}" > $FILE
+if test -f ~/.bash_profile; then rm -rf ~/.bash_profile; fi
+echo "function parse_git_branch {" >> ~/.bash_profile
+echo "  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/ (\\1)/'" >> ~/.bash_profile
+echo "}" >> ~/.bash_profile
+echo -n "export PS1=\\"[\\[\\e[37;44m\\]\\t\\[\\e[0m\\]] \\[\\e[92m\\]\\w\\[\\033[31m\\]\\\\" >> ~/.bash_profile
+echo "\\$(parse_git_branch)\\[\\033[00m\\]\\n$ \\"" >> ~/.bash_profile
+echo "" >> ~/.bash_profile
+echo "TZ='America/New_York'; export TZ" >> ~/.bash_profile
+echo "Done"
+\n`
                 document.querySelector('#gitconfig').innerHTML = raw;
             }
             updateGitconfig();
