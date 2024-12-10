@@ -70,11 +70,11 @@
             
 
             <h2>Step 1: Basic Info</h2>
-            <p><input id="userName" class="form-control" placeholder="Your Name">
-            <button id="insertName" class="btn btn-primary">Insert Name</button></p>
-
-            <p><input id="userEmail" class="form-control" placeholder="Your Email">
-            <button id="insertEmail" class="btn btn-primary">Insert Email</button></p>
+            <p>
+                <input id="userName" class="form-control" placeholder="Your Name">
+                <input id="userEmail" class="form-control" placeholder="Your Email">
+                <button id="insertNameEmail" class="btn btn-primary">Insert Name & Email</button>
+            </p>
 
             <textarea id="gitconfig">
                 git config --global user.name "X"
@@ -278,8 +278,7 @@ echo "Done"
                 document.querySelector('#gitconfig').innerHTML = raw;
             }
             updateGitconfig();
-            document.querySelector('#insertName').addEventListener('click',updateGitconfig);
-            document.querySelector('#insertEmail').addEventListener('click',updateGitconfig);
+            document.querySelector('#insertNameEmail').addEventListener('click',updateGitconfig);
 
 
             // SSH
