@@ -271,6 +271,7 @@ Hit CTRL-C to stop the server
 git config --global user.email '${userEmail}'
 git config --global pull.rebase false
 code --uninstall-extension vsls-contrib.gitdoc > /dev/null
+code --uninstall-extension cs50.cs50 > /dev/null
 FILE=/workspaces/.vscode/settings.json; if ! test -d /workspaces/.vscode; then mkdir /workspaces/.vscode; fi; if test -f $FILE; then rm -rf $FILE; fi; touch $FILE; printf "{\\n\\t\\"gitdoc.enabled\\": false,\\n\\t\\"editor.wordWrap\\": true\\n}" > $FILE
 if test -f ~/.bash_profile; then rm -rf ~/.bash_profile; fi
 echo "function parse_git_branch {" >> ~/.bash_profile
